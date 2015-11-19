@@ -15,7 +15,7 @@ function bd_pseudo_role_field_get_available_roles() {
 	
 	$all_roles= $wp_roles->get_names();//all roles as role=>role_name
         
-    return $all_roles;
+    return apply_filters( 'bp_pseudo_role_field_roles', $all_roles );
     
 }
 

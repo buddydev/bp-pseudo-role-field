@@ -3,10 +3,10 @@
 /**
  * Plugin Name: BP Pseudo Role Field
  * Plugin URI: http://buddydev.com/plugins/bp-pseudo-role-field/
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: BuddyDev.Com
  * Author URI: http://buddydev.com
- * Description: Create Pseudo Role type field not visible to 
+ * Description: Create Pseudo Role type field not visible to the users. Used with BP Profile Search plugin to allow scoping search to roles.
  */
 
 
@@ -41,11 +41,7 @@ class BD_Pseudo_Role_Field_Helper {
 		
 		add_filter( 'bp_xprofile_get_field_types', array( $this, 'add_field_types' ) );
 		
-		//Do not show role to user
-		//add_action( 'bp_custom_profile_edit_fields_pre_visibility', array( $this, 'may_be_show_field' ) );
-		
-		//roles are wp assigned and we do not update it
-		//add_action( 'xprofile_data_after_save', array( $this, 'update_member_type' ) );
+	
         
     }
     
@@ -66,9 +62,9 @@ class BD_Pseudo_Role_Field_Helper {
         
         
         $files = array(
-			'class-role-field.php',
-			'bp-role-field-functions.php',
-			'bp-role-field-hooks.php',
+			'class-pseudo-role-field.php',
+			'bp-pseudo-role-field-functions.php',
+			'bp-pseudo-role-field-hooks.php',
 			
         );
         

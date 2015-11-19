@@ -26,8 +26,8 @@ class BD_Pseudo_Role_Field_BPS_Helper {
 	private function setup() {
 		
 		add_filter ( 'bps_field_validation', array( $this,  'allow_validation' ), 10, 2 );
-		add_filter ('bps_field_data_for_search_form', array( $this, 'add_field_data' ) );
-		add_filter ('bps_field_data_for_filters', array( $this, 'add_field_data' ) );
+		add_filter ( 'bps_field_data_for_search_form', array( $this, 'add_field_data' ) );
+		add_filter ( 'bps_field_data_for_filters', array( $this, 'add_field_data' ) );
 		
 		add_filter( 'bps_field_query', array( $this, 'field_query' ), 10, 4 );
 		
@@ -61,7 +61,7 @@ class BD_Pseudo_Role_Field_BPS_Helper {
 
 	public function field_query( $results, $field, $key, $value ) {
 
-		if( $field->type == 'role' ) {
+		if( $field->type == 'role'  ) {
 
 			$results = bd_pseudo_get_users_by_role( $value );
 		}
