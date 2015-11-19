@@ -11,7 +11,7 @@ class BD_Pseudo_Role_Field_Type extends BP_XProfile_Field_Type_Selectbox {
 		parent::__construct();
 
 		$this->category = _x( 'Single Fields', 'xprofile field type category', 'bp-pseudo-role-field' );
-		$this->name     = _x( 'Psudo Role', 'xprofile field type', 'bp-pseudo-role-field' );
+		$this->name     = _x( 'Pseudo Role', 'xprofile field type', 'bp-pseudo-role-field' );
 
 		$this->set_format( '', 'replace' );
 		
