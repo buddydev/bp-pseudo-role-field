@@ -60,12 +60,10 @@ class BD_Pseudo_Role_Field_Helper {
     
     public function load() {
         
-        
         $files = array(
 			'class-pseudo-role-field.php',
 			'bp-pseudo-role-field-functions.php',
 			'bp-pseudo-role-field-hooks.php',
-			
         );
         
         foreach( $files as $file ) {

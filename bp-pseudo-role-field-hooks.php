@@ -1,7 +1,7 @@
 <?php
 /**
- * Helps conneting with BuddyPess Profile Search
- * // bridge code for BP Profile Search 4.3 or later
+ * Helps connecting with BuddyPress Profile Search
+ * // bridge code for BP Profile Search 4.6 or later
  */
 class BD_Pseudo_Role_Field_BPS_Helper {
 	
@@ -14,7 +14,7 @@ class BD_Pseudo_Role_Field_BPS_Helper {
 	}
 	
 	public static function get_instance() {
-		
+
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
@@ -24,13 +24,14 @@ class BD_Pseudo_Role_Field_BPS_Helper {
 	
 	
 	private function setup() {
-		
+
 		add_filter ( 'bps_field_validation', array( $this,  'allow_validation' ), 10, 2 );
 		add_filter ( 'bps_field_data_for_search_form', array( $this, 'add_field_data' ) );
 		add_filter ( 'bps_field_data_for_filters', array( $this, 'add_field_data' ) );
-		
+
+		add_filter( 'bps_field_setup_data', array( $this, 'unset_search_callback' ) );
 		add_filter( 'bps_field_query', array( $this, 'field_query' ), 10, 4 );
-		
+
 		add_filter( 'bp_after_has_profile_parse_args', array( $this, 'hide_role_fields' ) );
 	}
 	
@@ -57,11 +58,27 @@ class BD_Pseudo_Role_Field_BPS_Helper {
 		}
 		return $field;
 	}
-	
+
+	/**
+	 *
+	 * Do not let BP Profile Search hijack the query
+	 *
+	 * @param $f
+	 *
+	 * @return mixed
+	 */
+	public function unset_search_callback( $f ) {
+
+		if ( $f->type == 'role'  ) {
+			$f->search = '';
+		}
+
+		return $f;
+	}
 
 	public function field_query( $results, $field, $key, $value ) {
 
-		if( $field->type == 'role'  ) {
+		if ( $field->type == 'role'  ) {
 
 			$results = bd_pseudo_get_users_by_role( $value );
 		}
