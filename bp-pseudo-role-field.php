@@ -3,7 +3,7 @@
 /**
  * Plugin Name: BP Pseudo Role Field
  * Plugin URI: https://buddydev.com/plugins/bp-pseudo-role-field/
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: BuddyDev.Com
  * Author URI: https://buddydev.com
  * Description: Create Pseudo Role type field not visible to the users. Used with BP Profile Search plugin to allow scoping search to roles.
